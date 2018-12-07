@@ -26,15 +26,27 @@
                 <th>Nom</th>
                 <th>Briques</th>
                 <th>Couleur</th>
+                <th>Bouton</th>
             </tr>
 
-            @foreach($things as $thing)
-            <tr>
-                <td><a href="/admin/hide/{{$thing->getId()}}">{{ $thing->getName() }}</a></td>
-                <td>{{ $thing->getNbBricks() }}</td>
-                <td>{{ $thing->getColor() }}</td>
-            </tr>
-            @endforeach
+            <form method="post" action="/admin/kill">
+                @csrf
+                @foreach($things as $thing)
+                <tr>
+                    <td>{{ $thing->getName() }}</td>
+                    <td>{{ $thing->getNbBricks() }}</td>
+                    <td>{{ $thing->getColor() }}</td>
+                    <td><button name="delid" value="{{$thing->getId()}}">Delete</button></td>
+                </tr>
+                @endforeach
+            </form>
+
+            <form method="post" action="/admin/add">
+                @csrf
+                <input type="text" name="addvalue">
+                <button name="addbutton">Add</button>
+            </form>
+
         </table>
         @else
         <div>On en a {{ count($things) }}</div>

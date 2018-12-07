@@ -19,7 +19,7 @@ class Thing
 
     /**
      * Get the value of color
-     */ 
+     */
     public function getColor()
     {
         return $this->color;
@@ -29,7 +29,7 @@ class Thing
      * Set the value of color
      *
      * @return  self
-     */ 
+     */
     public function setColor($color)
     {
         $this->color = $color;
@@ -39,7 +39,7 @@ class Thing
 
     /**
      * Get the value of nbBricks
-     */ 
+     */
     public function getNbBricks()
     {
         return $this->nbBricks;
@@ -49,7 +49,7 @@ class Thing
      * Set the value of nbBricks
      *
      * @return  self
-     */ 
+     */
     public function setNbBricks($nbBricks)
     {
         $this->nbBricks = $nbBricks;
@@ -59,7 +59,7 @@ class Thing
 
     /**
      * Get the value of name
-     */ 
+     */
     public function getName()
     {
         return $this->name;
@@ -69,7 +69,7 @@ class Thing
      * Set the value of name
      *
      * @return  self
-     */ 
+     */
     public function setName($name)
     {
         $this->name = $name;
@@ -79,7 +79,7 @@ class Thing
 
     /**
      * Get the value of id
-     */ 
+     */
     public function getId()
     {
         return $this->id;
@@ -89,7 +89,7 @@ class Thing
      * Set the value of id
      *
      * @return  self
-     */ 
+     */
     public function setId($id)
     {
         $this->id = $id;
