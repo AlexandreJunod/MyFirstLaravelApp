@@ -32,6 +32,9 @@ class AdminController extends Controller
     public function add(Request $request)
     {
         //dd($request);
+        $validateData = $request->validate([
+            'addvalue' => 'required|min:2|max:10'
+        ]);
         $things = DataProvider::getData();
         $nextid = 0;
         foreach($things as $thing)

@@ -46,8 +46,18 @@
                 <input type="text" name="addvalue">
                 <button name="addbutton">Add</button>
             </form>
-
         </table>
+
+        @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif
+
         @else
         <div>On en a {{ count($things) }}</div>
         @endif
