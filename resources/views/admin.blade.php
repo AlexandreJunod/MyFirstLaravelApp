@@ -33,10 +33,10 @@
                 @csrf
                 @foreach($things as $thing)
                 <tr>
-                    <td>{{ $thing->getName() }}</td>
-                    <td>{{ $thing->getNbBricks() }}</td>
-                    <td>{{ $thing->getColor() }}</td>
-                    <td><button name="delid" value="{{$thing->getId()}}">Delete</button></td>
+                    <td>{{ $thing->tname }}</td>
+                    <td>{{ $thing->nbBricks }}</td>            
+                    <td>{{ $thing->cname }}</td>
+                    <td><button name="delid" value="{{ $thing->tid }}">Delete</button></td>
                 </tr>
                 @endforeach
             </form>

@@ -6,13 +6,17 @@ use App\Classes\DataProvider;
 use App\Classes\Thing;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use App\Http\Requests\ThingRequest;
+use DB;
 
 class AdminController extends Controller
 {
     public function index() {
-        $things = DataProvider::getData();
-        Storage::disk('local')->put('data.txt', serialize($things));
-        return view('admin')->with('things', $things);
+        $things = DB::select('SELECT t.id AS tid, t.name AS tname, t.nbBricks, c.name AS cname FROM things AS t INNER JOIN colors AS c ON c.id = t.color_id');
+        $colors = DB::select('SELECT * FROM colors');
+        //$things = DataProvider::getData();
+        //Storage::disk('local')->put('data.txt', serialize($things));
+        return view('admin')->with('things', $things)->with('colors', $colors);
     }
 
     public function kill(Request $request)
@@ -29,12 +33,12 @@ class AdminController extends Controller
         }
     }
 
-    public function add(Request $request)
+    public function add(ThingRequest $request)
     {
-        //dd($request);
+        /*dd($request);
         $validateData = $request->validate([
             'addvalue' => 'required|min:2|max:10'
-        ]);
+        ]);*/
         $things = DataProvider::getData();
         $nextid = 0;
         foreach($things as $thing)
