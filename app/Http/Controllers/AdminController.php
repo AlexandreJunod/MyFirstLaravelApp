@@ -12,7 +12,12 @@ use DB;
 class AdminController extends Controller
 {
     public function index() {
-        $things = DB::select('SELECT t.id AS tid, t.name AS tname, t.nbBricks, c.name AS cname FROM things AS t INNER JOIN colors AS c ON c.id = t.color_id');
+        $things = DB::table('things') //Query builder
+            ->join('colors','color_id','=','colors.id')
+            ->select('things.id','things.name as tname','things.nbBricks','colors.name as cname')
+            ->get();
+
+        //$things = DB::select('SELECT t.id AS tid, t.name AS tname, t.nbBricks, c.name AS cname FROM things AS t INNER JOIN colors AS c ON c.id = t.color_id');
         $colors = DB::select('SELECT * FROM colors');
         //$things = DataProvider::getData();
         //Storage::disk('local')->put('data.txt', serialize($things));
