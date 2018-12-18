@@ -3,7 +3,6 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-use Thing;
 
 class Color extends Model
 {
@@ -11,6 +10,6 @@ class Color extends Model
 
     public function things()
     {
-        return $this->hasMany('App\Thing');
+        return $this->belongsToMany('App\Thing');
     }
 }
