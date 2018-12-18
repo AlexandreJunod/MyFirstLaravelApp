@@ -13,6 +13,7 @@ use DB;
 class AdminController extends Controller
 {
     public function index() {
+        return Color::find(3)->things;
         $things = Thing::all();
         $colors = Color::all();
         return view('admin')->with('things', $things)->with('colors', $colors);
