@@ -33,10 +33,10 @@
                 @csrf
                 @foreach($things as $thing)
                 <tr>
-                    <td>{{ $thing->tname }}</td>
-                    <td>{{ $thing->nbBricks }}</td>            
-                    <td>{{ $thing->cname }}</td>
-                    <td><button name="delid" value="{{ $thing->tid }}">Delete</button></td>
+                    <td>{{ $thing->name }}</td>
+                    <td>{{ $thing->nbBricks }}</td>
+                    <td>{{ $thing->color->name }}</td>
+                    <td><button name="delid" value="{{ $thing->id }}">Delete</button></td>
                 </tr>
                 @endforeach
             </form>
@@ -61,10 +61,6 @@
         @else
         <div>On en a {{ count($things) }}</div>
         @endif
-        <div class="links">
-            <a href="/">Home</a>
-            <!--a href="/admin/12/toto">edit12</a-->
-        </div>
     </div>
 </div>
 @endsection

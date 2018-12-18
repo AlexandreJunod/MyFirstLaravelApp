@@ -18,6 +18,3 @@ Route::get('/', function () {
 Route::get('/admin', 'AdminController@index');
 Route::post('/admin/kill', 'AdminController@kill');
 Route::post('/admin/add', 'AdminController@add');
-
-//Route::get('/admin/{personId}/{newname}', 'AdminController@edit');
-//Route::get('/admin/hide/{id}', 'AdminController@hide');
